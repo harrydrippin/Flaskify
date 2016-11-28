@@ -181,14 +181,14 @@ def main():
         markdown_code = markdownify(json_string)
         for i in markdown_code:
             print(i + "\n")
-        # try:
-        #     f = open("API_DOC.md", "w")
-        #     for i in range(0, len(markdown_code)):
-        #         f.write(markdown_code[i] + "\n")
-        #     f.close()
-        # except Exception as e:
-        #     print("[-] 예기치 못한 오류가 발생했습니다. 다시 시도하시거나, 에러 내용을 문의해주세요.")
-        #     print("[-] 에러 명세 : " + str(e))
-        #     sys.exit(5)
+        try:
+            f = open("API_DOC.md", "w")
+            for i in range(0, len(markdown_code)):
+                f.write(markdown_code[i] + "\n")
+            f.close()
+        except Exception as e:
+            print("[-] 예기치 못한 오류가 발생했습니다. 다시 시도하시거나, 에러 내용을 문의해주세요.")
+            print("[-] 에러 명세 : " + str(e))
+            sys.exit(5)
 
 main()
