@@ -1,0 +1,45 @@
+{
+  "name"    : "Flaskify 테스트용 샘플 API",
+  "author"  : "홍승환",
+  "doc_comment" : "이 API 문서는 Flaskify의 작동 테스트를 위한 샘플 API입니다.",
+
+  "routes" : {
+
+    "/api": {
+      "methods" : "GET",
+      "comment" : "서버가 살아있는지 확인하고 어플리케이션의 최신 버전을 가져옵니다.",
+      "input" : {
+        "env" : "사용 환경"
+      },
+      "output" : {
+        "version" : "최신 버전"
+      }
+    },
+
+    "/api/login": {
+      "methods" : "POST",
+      "comment" : "서버에 로그인을 시도합니다.",
+      "input" : {
+        "id" : "아이디",
+        "password" : "비밀번호",
+        "env" : "사용 환경"
+      },
+      "output" : {
+        "result" : "결과 코드(0 : 성공, -1 : 실패)",
+        "token"  : "회원 세션 토큰"
+      }
+    },
+
+    "/api/logout": {
+      "methods" : "POST",
+      "comment" : "로그아웃을 요청합니다.",
+      "input" : {
+        "token" : "기존 회원 세션 토큰"
+      },
+      "output" : {
+        "result" : "결과 코드(0 : 성공, -1 : 실패)"
+      }
+    }
+
+  }
+}
