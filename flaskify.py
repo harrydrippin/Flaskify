@@ -1,13 +1,31 @@
 # -*- coding: utf-8 -*-
 # Flaskify.py
 # @author harrydrippin (Seunghwan Hong)
-# TODO: .md 파일 생성 기능 추가
 
-import argparse, json, datetime
+import argparse, json, datetime, os
 
-def flaskify(apifile, comment):
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
+def flaskify(api_doc, apifile, comment):
     ret = []
     apifile = json.loads(apifile)
+
+    print(bcolors.BOLD + "[+] File Name : " + bcolors.ENDC + api_doc)
+    print(bcolors.BOLD + "[+] Name      : " + bcolors.ENDC + apifile['name'])
+    print(bcolors.BOLD + "[+] Author    : " + bcolors.ENDC + apifile['author'])
+    print(bcolors.BOLD + "[+] Comment   : " + bcolors.ENDC + apifile['doc_comment'] + "\n")
+    if comment == True:
+        print("[+] Compiling with " + bcolors.HEADER + "TODO " + bcolors.ENDC + "comment...")
+    else:
+        print("[+] Compiling without " + bcolors.HEADER + "TODO " + bcolors.ENDC + "comment...")
 
     # Add name, author, doc_comment
     ret.append("# -*- coding: utf-8 -*-")
@@ -164,8 +182,9 @@ def main():
     json_string = ""
     for i in apifile:
         json_string += i
-
-    flaskCode = flaskify(json_string, comment)
+    print(bcolors.BOLD + "[*] " + bcolors.BOLD + "Flaskify 1.0.0")
+    print("[*] Made by Seunghwan Hong(@harrydrippin on Github)" + bcolors.ENDC + "\n")
+    flaskCode = flaskify(api_doc, json_string, comment)
 
     try:
         f = open("app.py", "w")
@@ -176,6 +195,8 @@ def main():
         print("[-] 예기치 못한 오류가 발생했습니다. 다시 시도하시거나, 에러 내용을 문의해주세요.")
         print("[-] 에러 명세 : " + str(e))
         sys.exit(5)
+
+    print("[+] Your " + bcolors.BOLD + "app.py" + bcolors.ENDC + " was saved on " + bcolors.UNDERLINE + os.getcwd() + bcolors.ENDC + ".")
 
     if markdown == True:
         markdown_code = markdownify(json_string)
@@ -188,5 +209,6 @@ def main():
             print("[-] 예기치 못한 오류가 발생했습니다. 다시 시도하시거나, 에러 내용을 문의해주세요.")
             print("[-] 에러 명세 : " + str(e))
             sys.exit(5)
+        print("[+] Markdown API document(" + bcolors.BOLD + "API_DOC.md" + bcolors.ENDC + ") was saved. You can also find this on directory above.")
 
 main()
