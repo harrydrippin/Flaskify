@@ -179,8 +179,6 @@ def main():
 
     if markdown == True:
         markdown_code = markdownify(json_string)
-        for i in markdown_code:
-            print(i + "\n")
         try:
             f = open("API_DOC.md", "w")
             for i in range(0, len(markdown_code)):
