@@ -1,6 +1,8 @@
 # Flaskify
 Simple Python library for super-fast API building and sharing for purpose of hackathon.
 
+[Here](https://github.com/harrydrippin/Flaskify/blob/master/README_en.md) is README file for English users.
+
 ### 개요
 
 이 프로젝트는 (사)앱센터에서 진행하는 [Startup Weekend](http://appcenter.kr/archives/category/startupweekend)에서 개발된 도구로, 해커톤에서 Flask 기반 Service Back-end API를 만들고자 할 때 빠르게 구조를 정리하여 기초적인 Skeleton Code를 만들고 그 내용을 `.md` 포맷으로 출력해 팀원 공유하거나 Github 위에서 관리할 수 있게 해주는 Python 기반의 도구입니다.
