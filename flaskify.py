@@ -18,14 +18,14 @@ def flaskify(api_doc, apifile, comment):
     ret = []
     apifile = json.loads(apifile)
 
-    print(bcolors.BOLD + "[+] File Name : " + bcolors.ENDC + api_doc)
-    print(bcolors.BOLD + "[+] Name      : " + bcolors.ENDC + apifile['name'])
-    print(bcolors.BOLD + "[+] Author    : " + bcolors.ENDC + apifile['author'])
-    print(bcolors.BOLD + "[+] Comment   : " + bcolors.ENDC + apifile['doc_comment'] + "\n")
+    print("[+] " + bcolors.BOLD + "File Name : " + bcolors.ENDC + api_doc)
+    print("[+] " + bcolors.BOLD + "Name      : " + bcolors.ENDC + apifile['name'])
+    print("[+] " + bcolors.BOLD + "Author    : " + bcolors.ENDC + apifile['author'])
+    print("[+] " + bcolors.BOLD + "Comment   : " + bcolors.ENDC + apifile['doc_comment'] + "\n")
     if comment == True:
         print("[+] Compiling with " + bcolors.HEADER + "TODO " + bcolors.ENDC + "comment...")
     else:
-        print("[+] Compiling without " + bcolors.HEADER + "TODO " + bcolors.ENDC + "comment...")
+        print("[+] Compiling...")
 
     # Add name, author, doc_comment
     ret.append("# -*- coding: utf-8 -*-")
@@ -182,8 +182,8 @@ def main():
     json_string = ""
     for i in apifile:
         json_string += i
-    print(bcolors.BOLD + "[*] " + bcolors.BOLD + "Flaskify 1.0.0")
-    print("[*] Made by Seunghwan Hong(@harrydrippin on Github)" + bcolors.ENDC + "\n")
+    print("[+] " + bcolors.BOLD + "Flaskify 1.0.0" + bcolors.ENDC)
+    print("[*] " + bcolors.BOLD + "Made by Seunghwan Hong(@harrydrippin on Github)" + bcolors.ENDC + "\n")
     flaskCode = flaskify(api_doc, json_string, comment)
 
     try:
